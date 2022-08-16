@@ -32,9 +32,12 @@ shinyServer(function(input, output) {
             labels = paste("More than", predictions, "failures\n", "probability:", z * 100, "%")
         }
         
+        y_percentage = y * 100
         output$probabilityPlotID = renderPlot({
-            barplot(y, names.arg = labels, col = heat.colors(5, rev = T),
-                    ylim = c(0, 1), main = typeTitle)
+            barplot(y_percentage, names.arg = labels, font.axis = 2,
+                    col = heat.colors(5, rev = T), ylim = c(0, 100), yaxt='n', main = typeTitle)
+            axis(2, at = c(0, 20, 40, 60, 80, 100),
+                 labels = c("0 %", "20 %", "40 %", "60 %", "80 %", "100 %"), font = 2)
             box()
         })
     })
