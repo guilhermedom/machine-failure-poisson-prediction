@@ -21,7 +21,7 @@ shinyUI(fluidPage(
                               "Probability of machine failing more than x times" = 3),
                selected = 1)),
         column(6, align = "center",
-               numericInput("numericInputID", "Average number of failures
+               numericInput("numericInputID", "Expected number of failures
                             informed by the machine manufacturer:",
                             value = 2, min = 1, max = 999),
                actionButton("predictButtonID", "Predict!"))
