@@ -1,18 +1,18 @@
 library(shiny)
 library(shinythemes)
 
-# Define UI for application
+# Define UI for application.
 shinyUI(fluidPage(
     theme = shinytheme("lumen"),
 
-    # Application title
-    titlePanel(h1("Machine Failure Prediction Using the Poisson Distribution",
-                  align = "center"),
-               windowTitle = "Machine Failure Prediction Using the Poisson Distribution"),
+    # Application title.
+    titlePanel(h1(align = "center", "Machine Failure Prediction"),
+               windowTitle = "Machine Failure Prediction"),
     
     br(),
     br(),
 
+    # Buttons to select the probability to predict and number of failures.
     fluidRow(
         column(6, align = "center",
                radioButtons("radioButtonID", label = "Select probability to predict:",
@@ -26,6 +26,7 @@ shinyUI(fluidPage(
                             value = 2, min = 1, max = 999),
                actionButton("predictButtonID", "Predict!"))
     ),
+    # UI output for barplot with calculated probabilities
     fluidRow(
         column(12, plotOutput("probabilityPlotID"))
     )
